@@ -13,7 +13,6 @@ fun main() {
     println("¿Está aprobado? $aprobado") //se muestra si el alumno está aprobado o no (con true or false)
 
     println("\n=== Etapa 2: Funciones con Múltiples Parámetros ===")
-    // TODO: Implementar función calcularPromedioTresNotas
     val promedioTresNotas = calcularPromedioTresNotas(7.0, 8.0, 9.0)
     println("El promedio de las tres notas es: $promedioTresNotas")
 
@@ -57,7 +56,7 @@ fun calcularPromedio(nota1: Double, nota2: Double): Double {
 }
 
 fun esAprobado(nota: Double): Boolean {
-    if (nota>=6){ //se determina si la nota es mayor o igual a 6 y se devuelve un booleano
+    if (nota>=6){ //se determina si la nota es mayor o igual a 6 y se devuelve un booleanoS
         return true
     } else {
         return false
@@ -65,13 +64,16 @@ fun esAprobado(nota: Double): Boolean {
 }
 
 // Etapa 2
+/*
+2. Implementa la función `obtenerEstadoAlumno` que recibe nombre, apellido y nota, y retorna un String con el formato: "El alumno [nombre] [apellido] [está aprobado/está desaprobado]"
+ */
 fun calcularPromedioTresNotas(nota1: Double, nota2: Double, nota3: Double): Double {
-    // Implementar aquí
-    return 0.0
+    val promedioTres: Double = (nota1 + nota2 + nota3) / 3 //se suman las tres notas y se divide por 3
+    return promedioTres
 }
 
 fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String {
-    // Implementar aquí
+    //El alumno [nombre] [apellido] [está aprobado/está desaprobado]
     return ""
 }
 
