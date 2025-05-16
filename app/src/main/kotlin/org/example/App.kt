@@ -37,12 +37,11 @@ fun main() {
     val boletin = generarBoletin("Juan Pérez", materias, notasMaterias) //se llama a la función generarBoletin y se le pasan tres parámetros que corresponden al nombre del alumno, la lista de materias y la lista de notas
     println(boletin)
 
-    // TODO: Implementar funciones de análisis de rendimiento
     println("Estadísticas del curso:")
-    println("Promedio: ${calcularPromedioCurso(notas)}")
-    println("Nota más alta: ${obtenerNotaMasAlta(notas)}")
-    println("Nota más baja: ${obtenerNotaMasBaja(notas)}")
-    println("Cantidad de aprobados: ${contarAprobados(notas)}")
+    println("Promedio: ${calcularPromedioCurso(notas)}") //se muestra el promedio del curso
+    println("Nota más alta: ${obtenerNotaMasAlta(notas)}") //se muestra la nota más alta
+    println("Nota más baja: ${obtenerNotaMasBaja(notas)}") //se muestra la nota más baja
+    println("Cantidad de aprobados: ${contarAprobados(notas)}") //se muestra la cantidad de aprobados
 }
 
 // Etapa 1
@@ -98,35 +97,19 @@ fun generarBoletin(nombre: String, materias: List<String>, notas: List<Double>):
     return "Las notas de ${nombre} son: ${materias[0]} ${notas[0]}, ${materias[1]} ${notas[1]}, ${materias[2]} ${notas[2]}" //se muestra el nombre del alumno y las materias con sus respectivas notas
 }
 
-
-
-/*
-2. Implementa las siguientes funciones para analizar el rendimiento del curso:
-   - `obtenerNotaMasAlta`: recibe una lista de notas y retorna la nota más alta
-   - `obtenerNotaMasBaja`: recibe una lista de notas y retorna la nota más baja
-   - `contarAprobados`: recibe una lista de notas y retorna la cantidad de alumnos aprobados
-
-    println("Nota más alta: ${obtenerNotaMasAlta(notas)}")
-    println("Nota más baja: ${obtenerNotaMasBaja(notas)}")
-    println("Cantidad de aprobados: ${contarAprobados(notas)}")
-    val notas = listOf(7.0, 8.0, 6.5, 9.0, 7.5)*/
-
-
 fun obtenerNotaMasAlta(notas: List<Double>): Double {
-    return notas.max()
+    return notas.max() //se obtiene la nota más alta de la lista de notas utilizando la función max()
 }
 
-
-
 fun obtenerNotaMasBaja(notas: List<Double>): Double {
-    return notas.min()
+    return notas.min() //se obtiene la nota más baja de la lista de notas utilizando la función min()
 }
 
 fun contarAprobados(notas: List<Double>): Int {
     var contador=0
-    for (i in notas){
+    for (i in notas){ //se recorre la lista de notas para contar la cantidad de aprobados
         if (i>= 6){
-            contador++
+            contador++ //se incrementa el contador cada vez que se encuentra una nota aprobada
         }
     }
     return contador
