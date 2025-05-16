@@ -3,6 +3,8 @@
  */
 package org.example
 
+import org.example.esAprobado
+
 fun main() {
     println("=== Etapa 1: Funciones Básicas ===")
     val promedio1 = calcularPromedio(10.0, 1.0) //se llama a la función calcularPromedio y se le pasan dos parámetros que corresponden a las notas
@@ -17,7 +19,7 @@ fun main() {
     println("El promedio de las tres notas es: $promedioTresNotas")
 
     // TODO: Implementar función obtenerEstadoAlumno
-    val estado = obtenerEstadoAlumno("Juan", "Pérez", 7.5)
+    val estado = obtenerEstadoAlumno("Juan", "Pérez", 4.3)
     println(estado)
 
     println("\n=== Etapa 3: Funciones con Listas ===")
@@ -47,8 +49,6 @@ fun main() {
     println("Cantidad de aprobados: ${contarAprobados(notas)}")
 }
 
-// TODO: Implementar las siguientes funciones:
-
 // Etapa 1
 fun calcularPromedio(nota1: Double, nota2: Double): Double {
     val promedio1: Double = (nota1+nota2)/2 //se suman las dos notas y se divide por 2
@@ -64,17 +64,17 @@ fun esAprobado(nota: Double): Boolean {
 }
 
 // Etapa 2
-/*
-2. Implementa la función `obtenerEstadoAlumno` que recibe nombre, apellido y nota, y retorna un String con el formato: "El alumno [nombre] [apellido] [está aprobado/está desaprobado]"
- */
 fun calcularPromedioTresNotas(nota1: Double, nota2: Double, nota3: Double): Double {
     val promedioTres: Double = (nota1 + nota2 + nota3) / 3 //se suman las tres notas y se divide por 3
     return promedioTres
 }
 
 fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String {
-    //El alumno [nombre] [apellido] [está aprobado/está desaprobado]
-    return ""
+    if (nota >= 7.0) { //se determina si la nota está aprobada (mayor o igual a 7) o desaprobada  
+        return "El alumno ${nombre} ${apellido} está aprobado"
+    } else{
+        return "El alumno ${nombre} ${apellido} está desaprobado"
+    } 
 }
 
 // Etapa 3
