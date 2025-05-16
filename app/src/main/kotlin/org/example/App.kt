@@ -15,24 +15,21 @@ fun main() {
     println("¿Está aprobado? $aprobado") //se muestra si el alumno está aprobado o no (con true or false)
 
     println("\n=== Etapa 2: Funciones con Múltiples Parámetros ===")
-    val promedioTresNotas = calcularPromedioTresNotas(7.0, 8.0, 9.0)
-    println("El promedio de las tres notas es: $promedioTresNotas")
+    val promedioTresNotas = calcularPromedioTresNotas(7.0, 8.0, 9.0) //se llama a la función calcularPromedioTresNotas y se le pasan tres parámetros para los valores de las notas
+    println("El promedio de las tres notas es: $promedioTresNotas") // se muestra el promedio de las tres notas en pantalla
 
-    // TODO: Implementar función obtenerEstadoAlumno
-    val estado = obtenerEstadoAlumno("Juan", "Pérez", 4.3)
-    println(estado)
+    val estado = obtenerEstadoAlumno("Juan", "Pérez", 4.3) // se llama a la función obtenerEstadoAlumno y se le pasan tres parámetros que corresponden al nombre, apellido y nota del alumno
+    println(estado) //se muestra el nombre, apellido y estado del alumno
 
     println("\n=== Etapa 3: Funciones con Listas ===")
-    // TODO: Implementar función calcularPromedioCurso
-    val notas = listOf(7.0, 8.0, 6.5, 9.0, 7.5)
-    val promedioCurso = calcularPromedioCurso(notas)
-    println("El promedio del curso es: $promedioCurso")
+    val notas = listOf(7.0, 8.0, 6.5, 9.0, 7.5) //se crea una lista de notas
+    val promedioCurso = calcularPromedioCurso(notas) //se llama a la función calcularPromedioCurso y se le pasa la lista de notas como parámetro
+    println("El promedio del curso es: $promedioCurso")// se muestra el promedio del curso
 
-    // TODO: Implementar función obtenerAlumnosAprobados
-    val nombres = listOf("Ana", "Juan", "María", "Pedro", "Lucía")
-    val notasAlumnos = listOf(7.0, 5.0, 8.0, 6.0, 9.0)
-    val aprobados = obtenerAlumnosAprobados(nombres, notasAlumnos)
-    println("Alumnos aprobados: $aprobados")
+    val nombres = listOf("Ana", "Juan", "María", "Pedro", "Lucía") //se crea una lista de nombres y luego de notas
+    val notasAlumnos = listOf(7.0, 5.0, 3.0, 6.0, 9.0)
+    val aprobados = obtenerAlumnosAprobados(nombres, notasAlumnos) //se llama a la función obtenerAlumnosAprobados y se le pasan dos listas como parámetros
+    println("Alumnos aprobados: $aprobados") //se muestra la lista de los nombres de los alumnos aprobados
 
     println("\n=== Etapa 4: Funciones Avanzadas ===")
     // TODO: Implementar función generarBoletin
@@ -70,7 +67,7 @@ fun calcularPromedioTresNotas(nota1: Double, nota2: Double, nota3: Double): Doub
 }
 
 fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String {
-    if (nota >= 7.0) { //se determina si la nota está aprobada (mayor o igual a 7) o desaprobada  
+    if (nota >= 6.0) { //se determina si la nota está aprobada (mayor o igual a 6) o desaprobada  
         return "El alumno ${nombre} ${apellido} está aprobado"
     } else{
         return "El alumno ${nombre} ${apellido} está desaprobado"
@@ -79,13 +76,22 @@ fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String 
 
 // Etapa 3
 fun calcularPromedioCurso(notas: List<Double>): Double {
-    // Implementar aquí
-    return 0.0
+    var suma = 0.0 //se inicializa la variable suma en 0.0
+    for (i in notas){ //se recorre la lista de notas
+        suma = suma + i //se suman las notas
+    }
+    val promedioFinal = suma/notas.size // se divide la suma de las notas por la cantidad de notas
+    return promedioFinal
 }
 
 fun obtenerAlumnosAprobados(nombres: List<String>, notas: List<Double>): List<String> {
-    // Implementar aquí
-    return emptyList()
+    val aprobados = mutableListOf <String>() //se crea una lista mutable de strings para almacenar los nombres de los alumnos aprobados
+    for (i in notas){ //se recorre la lista de notas para determinar si el alumno está aprobado o no
+        if (i >= 6.0) { 
+            val aprobados=aprobados.add(nombres[notas.indexOf(i)]) //se agrega el nombre del alumno a la lista de aprobados
+        }
+    }
+    return aprobados
 }
 
 // Etapa 4
